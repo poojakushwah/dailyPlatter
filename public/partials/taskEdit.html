@@ -1,0 +1,128 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Task <small>/ Update Task</small></h4></div>
+	<div class="col-md-2">
+		<a ui-sref="task" class="btn btn-success pull-right" role="button">View Tasks</a>
+	</div>
+</div>
+<hr>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Update Task</div>
+  <div class="panel-body">
+  	<form class="form-horizontal" ng-submit="update()">
+		
+		<div class="form-group">
+			<label for="f_project" class="col-sm-3 control-label">Project:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="f_project" ng-model="project" ng-change="projectSelected()" ng-options="item.projectname for item in projects">
+				    <option value="">Select Project</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_name" class="col-sm-3 control-label">task Name:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_name" class="form-control" placeholder="Task Name" ng-model="name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_clientidentifier" class="col-sm-3 control-label">Client Identifier:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_clientidentifier" class="form-control" placeholder="Used to reference with client" ng-model="clientidentifier">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_taskType" class="col-sm-3 control-label">Task Type:</label>
+			<div class="col-sm-6">
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="f_taskType" value="new" ng-model="taskType"> New
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="inlineRadioOptions" id="f_taskType" value="feedback" ng-model="taskType"> Feedback
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_assignDate" class="col-sm-3 control-label">Assign Date:</label>
+			<div class="col-sm-6">
+				<input type="date" id="f_assignDate" ng-model="assignDate">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_dueDate" class="col-sm-3 control-label">Due Date:</label>
+			<div class="col-sm-6">
+				<input type="date" id="f_dueDate" ng-model="dueDate">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_effort" class="col-sm-3 control-label">Estimated Effort:</label>
+			<div class="col-sm-6">
+				<input type="number" id="f_effort" class="form-control" placeholder="Effort" ng-model="estEffort">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_remark" class="col-sm-3 control-label">Status:</label>
+			<div class="col-sm-6">
+				<select class="form-control" ng-model="status">
+					<option value="inqueue">In Queue</option>
+					<option value="assign">Assign</option>
+					<option value="inprogress">In-Progress</option>
+					<option value="inqa">In-QA</option>
+					<option value="complete">Complete</option>
+					<option value="onhold">On-Hold</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="f_template" class="col-sm-3 control-label">Template:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_template" class="form-control" placeholder="Templates" ng-model="templates">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_keyword" class="col-sm-3 control-label">Keywords:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_keyword" class="form-control" placeholder="Keywords" ng-model="keyword">
+			</div>
+		</div>
+
+		
+		<div class="form-group">
+			<label for="f_remark" class="col-sm-3 control-label">Remark:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_remark" class="form-control" placeholder="Remark" ng-model="remark">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_eta" class="col-sm-3 control-label">ETA:</label>
+			<div class="col-sm-6">
+				<input type="text" id="f_eta" class="form-control" placeholder="10:00AM" ng-model="eta">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_assets" class="col-sm-3 control-label">Assets:</label>
+			<div class="col-sm-6">
+				<!-- <input type="text" id="f_remark" class="form-control" placeholder="Remark" ng-model="assets"> -->
+				<textarea id="f_assets" class="form-control" ng-model="assets"></textarea>
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-10">
+	      		<button type="submit" class="btn btn-primary">Update</button> <input type="button" class="btn btn-default" ng-click="resetPage()" value="Reset">
+	      	</div>
+		</div>
+	</form>
+  </div>
+</div>
+
+

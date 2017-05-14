@@ -1,0 +1,67 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Timesheet <small>/ Add </small></h4></div>
+	<div class="col-md-2"><a ui-sref="timesheet" class="btn btn-success pull-right" role="button">View Timesheet</a></div>
+</div>
+<hr>
+<div class="alert" ng-class="{'alert-danger' : message.type == -1, 'alert-success' : message.type == 1}" ng-show="message.type">
+   {{message.text}}
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">Add Timesheet</div>
+  <div class="panel-body">
+  	<form class="form-horizontal" ng-submit="add()">
+		
+
+		<div class="form-group">
+			<label for="f_users" class="col-sm-3 control-label">Resource Name:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="f_users" ng-model="user" ng-options="item.name for item in users">
+					    <option value="">Select Resoruce</option>
+					</select>
+
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_tasks" class="col-sm-3 control-label">Select Task:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="f_tasks" ng-model="task" ng-options="item.name for item in tasks">
+				    <option value="">Select Task</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="f_startDate" class="col-sm-3 control-label">Project Name:</label>
+			<div class="col-sm-6">
+				{{task.project.projectname}}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_Date" class="col-sm-3 control-label">Date:</label>
+			<div class="col-sm-6">
+				<input type="date" id="f_Date" ng-model="effortdate">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_Hour" class="col-sm-3 control-label">Hours:</label>
+			<div class="col-sm-6">
+				<input type="number" id="f_Hour" class="form-control" placeholder="Hour" ng-model="effort">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-10">
+	      		<button type="submit" class="btn btn-primary">Submit</button>
+	      		<button type="reset" class="btn btn-default">Reset</button>
+	      	</div>
+		</div>
+	</form>
+  </div>
+</div>
+
+
+
+

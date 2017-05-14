@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Daily Platter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/lib/angular.min.js"></script>
+    <script src="/javascripts/lib/angular-ui-router.js"></script>
+    <script src="/javascripts/directives.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+    <script src="/javascripts/accountControllers.js"></script>
+    <script src="/javascripts/projectControllers.js"></script>
+    <script src="/javascripts/userControllers.js"></script>
+    <script src="/javascripts/taskControllers.js"></script>
+    <script src="/javascripts/assignmentControllers.js"></script>
+    <script src="/javascripts/timesheetControllers.js"></script>
+    <script src="/javascripts/lib/angular-animate.js"></script>
+    
+  </head>
+  <body ng-app="dailyPlatter" ng-controller="MainCtrl">
+    <nav class="navbar navbar-inverse" ng-show="isLoggedIn">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">dailyPlatter</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Dashboard</a></li>
+        <li><a ui-sref="account">Account</a></li>
+        <li><a ui-sref="project">Project</a></li>
+        <li><a ui-sref="task">Task</a></li>
+        <li><a ui-sref="assignment">Assignment</a></li>
+        <li><a ui-sref="timesheet">Timesheet</a></li>
+        <li><a ui-sref="report">Report</a></li>
+        <li><a ui-sref="user">Resource</a></li>
+        <li><a ui-sref="leave">Leave</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li ng-show="isLoggedIn"><a href="logout()">{{currentUser.name}}</a>,</li>
+      <li ng-show="isLoggedIn" class="btn"><a ng-click="logout()">Logout</a></li>
+      <li ng-hide="isLoggedIn"><a href="/login">Login</a></li>
+    </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container">
+      <div ui-view></div>
+    </div>
+  </body>
+</html>

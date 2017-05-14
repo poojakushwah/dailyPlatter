@@ -1,0 +1,77 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Task <small>/ List</small></h4></div>
+	<div class="col-md-2"><a ui-sref="task_add" class="btn btn-success pull-right" role="button">Add Task</a></div>
+</div>
+<hr>
+<div class="row">
+	<div class="pull-right">
+		<input type="checkbox" ng-model="todaysDeliveryOnly"> Today's delivery only
+	</div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">Tasks - In Process</div>
+  <div class="panel-body">
+  	<table class="table">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Project</th>
+	        <th>Task Name</th>
+	        <th>Effort</th>
+	        <th>Assign Date</th>
+	        <th>Due Date</th>
+	        <th>Status</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="task in tasks | filter: {status: '!complete'} | orderBy: 'duedate'" ng-class="{'warning': task.status == 'onhold' , 'success': task.status == 'complete',
+              'active': task.status == 'inprogress','active': task.status == 'assign', 'danger': task.status == 'inqueue' } ">
+				<td>{{$index+1}}</td>
+				<td>{{task.project.projectname}}</td>
+				<td><a href="#/task_details/{{task._id}}">{{task.name}}</a></td>
+				<td>{{task.estEffort}}<span ng-hide="task.estEffort>0"><a href="#/task_edit/{{task._id}}">Estimate</a></span></td>
+				<td>{{task.assigndate | date:"dd-MMM-yy" }}</td>
+				<td>{{task.duedate | date:"dd-MMM-yy"}}</td>
+				<td>{{task.status}}</td>
+				<td><a href="#/task_edit/{{task._id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+			</tr>
+			
+		</tbody>
+	</table>
+
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Tasks - Completed</div>
+  <div class="panel-body">
+  	<table class="table">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Project</th>
+	        <th>Task Name</th>
+	        <th>Assign Date</th>
+	        <th>Due Date</th>
+	        <th>Status</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="task in tasks  | filter: {status: 'complete'}" ng-class="{'warning': task.status == 'onhold' , 'success': task.status == 'complete',
+              'active': task.status == 'inprogress','active': task.status == 'assign', 'danger': task.status == 'inqueue' } ">
+				<td>{{$index+1}}</td>
+				<td>{{task.project.projectname}}</td>
+				<td><a href="#/task_details/{{task._id}}">{{task.name}}</a></td>
+				<td>{{task.assigndate | date:"dd-MMM-yy" }}</td>
+				<td>{{task.duedate | date:"dd-MMM-yy"}}</td>
+				<td>{{task.status}}</td>
+				<td><a href="#/task_edit/{{task._id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+			</tr>
+			
+		</tbody>
+	</table>
+
+  </div>
+</div>

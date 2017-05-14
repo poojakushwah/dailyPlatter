@@ -1,0 +1,97 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Project <small>/ Update Project</small></h4></div>
+	<div class="col-md-2">
+		<a ui-sref="project" class="btn btn-success pull-right" role="button">View Projects</a>
+	</div>
+	<!-- <div class="col-md-1">
+		<a ui-sref="project" class="btn btn-success pull-right" role="button"><<</a>
+	</div>
+	<div class="col-md-1">
+		<a ui-sref="project" class="btn btn-success pull-right" role="button">>></a>
+	</div> -->
+</div>
+<hr>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Update Project</div>
+  <div class="panel-body">
+  	<form class="form-horizontal" ng-submit="update()">
+		<div class="form-group">
+			<label for="projectName" class="col-sm-3 control-label">Project Name:</label>
+			<div class="col-sm-6">
+				<input type="text" id="projectName" class="form-control" placeholder="Project" ng-model="name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="projectId" class="col-sm-3 control-label">Project ID/Job Code:</label>
+			<div class="col-sm-6">
+				<input type="text" id="projectId" class="form-control" placeholder="Project ID" ng-model="projectId">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="paccount" class="col-sm-3 control-label">Account:</label>
+			<div class="col-sm-6">
+			<select class="form-control" id="paccount" ng-model="account" ng-options="item.name for item in accounts">
+				    <option value="">Select Account</option>
+				</select>
+				<!-- <select class="form-control" id="paccount" ng-model="account">
+				    <option value="Sizmek">Sizmek</option>
+					<option value="Razorfish">Razorfish</option>
+					<option value="Resolute">Resolute</option>
+					<option value="Others">Others</option>
+			  </select> -->
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_startDate" class="col-sm-3 control-label">Start Date:</label>
+			<div class="col-sm-6">
+				<input type="date" id="f_startDate" ng-model="startdate">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="f_endDate" class="col-sm-3 control-label">End Date:</label>
+			<div class="col-sm-6">
+				<input type="date" id="f_endDate" ng-model="enddate">
+			</div>
+		</div>
+
+		<div class="form-group col-sm-12"><hr></div>
+		<div class="form-group">
+			<label for="f_billableHour" class="col-sm-3 control-label">Billable Hours:</label>
+			<div class="col-sm-6">
+				<input type="number" id="f_billableHour" class="form-control" placeholder="Billable Hour" ng-model="billableHour">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_billableAmount" class="col-sm-3 control-label">Billable Amont:</label>
+			<div class="col-sm-6">
+				<input type="number" id="f_billableAmount" class="form-control" placeholder="Billable Amount" ng-model="billableAmount">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_invoiced" class="col-sm-3 control-label">Inoviced:</label>
+			<div class="col-sm-6">
+				<input type="checkbox" id="f_invoiced" ng-model="invoiced">
+				
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="f_status" class="col-sm-3 control-label">Status:</label>
+			<div class="col-sm-6">
+				<select class="form-control" id="f_status" ng-model="status">
+				    <option value="0">In Progress</option>
+					<option value="1">Completed</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-10">
+	      		<button type="submit" class="btn btn-primary">Update</button> <input type="button" class="btn btn-default" ng-click="resetPage()" value="Reset">
+	      	</div>
+		</div>
+	</form>
+  </div>
+</div>
+
+

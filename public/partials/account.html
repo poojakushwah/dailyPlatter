@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Account <small>/ List</small></h4></div>
+	<div class="col-md-2"><a ui-sref="account_add" class="btn btn-success pull-right" role="button">Add Account</a></div>
+</div>
+<hr>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Accounts</div>
+  <div class="panel-body">
+  	<table class="table table-striped">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Account Name</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="account in accounts | filter:{status: '1'}">
+				<td>{{$index+1}}</td>
+				<td>{{account.name}}</td>
+				<td><a href="#/account_edit/{{account._id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+  </div>
+</div>
+

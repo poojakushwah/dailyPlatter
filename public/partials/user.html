@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Resource <small>/ List</small></h4></div>
+	<div class="col-md-2"><a ui-sref="user_add" class="btn btn-success pull-right" role="button">Add Resource</a></div>
+</div>
+<hr>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Resources</div>
+  <div class="panel-body">
+  	<table class="table table-striped">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Name</th>
+	        <th>Email</th>
+	        <th>User Type</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="user in users">
+				<td>{{$index+1}}</td>
+				<td><a href="#/user_details/{{user._id}}">{{user.name}}</a></td>
+				<td>{{user.email}}</td>
+				<td>{{user.usertype}}</td>
+				<td><a href="#/user_edit/{{user._id}}">Edit</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+  </div>
+</div>

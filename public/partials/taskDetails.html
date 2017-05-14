@@ -1,0 +1,103 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Task <small>/ Task Details</small></h4></div>
+	<div class="col-md-2">
+		<a ui-sref="task" class="btn btn-success pull-right" role="button">View Tasks</a>
+	</div>
+	<!-- <div class="col-md-1">
+		<a ui-sref="project" class="btn btn-success pull-right" role="button"><<</a>
+	</div>
+	<div class="col-md-1">
+		<a ui-sref="project" class="btn btn-success pull-right" role="button">>></a>
+	</div> -->
+</div>
+<hr>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">General</div>
+	<div class="panel-body">
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Project Name</strong></div>
+	  		<div class="col-sm-10">{{project.projectname}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Task Name</strong></div>
+	  		<div class="col-sm-10">{{name}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Client Identifier</strong></div>
+	  		<div class="col-sm-10">{{clientidentifier}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Task Type</strong></div>
+	  		<div class="col-sm-10">{{taskType}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Assign Date</strong></div>
+	  		<div class="col-sm-10">{{assignDate | date:"dd-MMM-yy"}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Due Date</strong></div>
+	  		<div class="col-sm-10">{{dueDate | date:"dd-MMM-yy"}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Estimate Effort</strong></div>
+	  		<div class="col-sm-10">{{estEffort}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Templates</strong></div>
+	  		<div class="col-sm-10">{{templates}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Keywords</strong></div>
+	  		<div class="col-sm-10">{{keyword}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Remarks</strong></div>
+	  		<div class="col-sm-10">{{remark}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>ETA</strong></div>
+	  		<div class="col-sm-10">{{eta}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Assets</strong></div>
+	  		<div class="col-sm-10">{{assets}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Status</strong></div>
+	  		<div class="col-sm-10">{{status}}</div>
+	  	</div>
+	  	<!-- <div class="row">
+	  		<div class="col-sm-2"><strong>Resoruce</strong></div>
+	  		<div class="col-sm-10">{{resource}}</div>
+	  	</div> -->
+	</div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Resoruce Assignment</div>
+  <div class="panel-body">
+  	
+		<table class="table">
+  		<thead>
+	      <tr>
+	        <th>Resoruce</th>
+	        <th>Date</th>
+	        <th>Hours</th>
+	        
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="item in currTask.allocation">
+				<td>{{item.user.name}}</td>
+				<td>{{item.date | date:"dd-MMM-yy"}}</td>
+				<td>{{item.effort}}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+  </div>
+</div>
+
+

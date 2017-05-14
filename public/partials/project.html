@@ -1,0 +1,59 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Project <small>/ List</small></h4></div>
+	<div class="col-md-2"><a ui-sref="project_add" class="btn btn-success pull-right" role="button">Add Project</a></div>
+</div>
+<hr>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Projects In Queue</div>
+  <div class="panel-body">
+  	<table class="table table-striped">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Project ID</th>
+	        <th>Name</th>
+	        <th>Account</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="project in projects | filter:{status: '!1'}">
+				<td>{{$index+1}}</td>
+				<td>{{project.projectid}}</td>
+				<td><a href="#/project_details/{{project._id}}">{{project.projectname}}</a></td>
+				<td>{{project.account.name}}</td>
+				<td><a href="#/project_edit/{{project._id}}"><span class="glyphicon glyphicon-edit"></span></a> | <a href="#/task_add/{{project._id}}">Add Task</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Projects Completed</div>
+  <div class="panel-body">
+  	<table class="table table-striped">
+  		<thead>
+	      <tr>
+	        <th>S.No.</th>
+	        <th>Project ID</th>
+	        <th>Name</th>
+	        <th>Account</th>
+	        <th>Action</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="project in projects | filter:{status: '1'}">
+				<td>{{$index+1}}</td>
+				<td>{{project.projectid}}</td>
+				<td><a href="#/project_details/{{project._id}}">{{project.projectname}}</a></td>
+				<td>{{project.account.name}}</td>
+				<td><a href="#/project_edit/{{project._id}}"><span class="glyphicon glyphicon-edit"></span></a> | <a ui-sref="task_add">Add Task</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+  </div>
+</div>

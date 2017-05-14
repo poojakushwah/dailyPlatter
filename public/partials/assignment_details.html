@@ -1,0 +1,140 @@
+<div class="row">
+	<div class="col-md-10"><h4>/ Assigment <small>/ Details</small></h4></div>
+	<div class="col-md-2"><a ui-sref="assignment" class="btn btn-success pull-right" role="button">Assigned Tasks</a></div>
+</div>
+<hr>
+
+<div class="panel panel-info">
+  	<div class="panel-heading">Task Details</div>
+	<div class="panel-body">
+  		<div class="row">
+	  		<div class="col-sm-2"><strong>Project Name</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.project.projectname}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Task Name</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.name}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Task Type</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.type}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Assign Date</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.assigndate | date:"dd-MMM-yy"}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Due Date</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.duedate | date:"dd-MMM-yy"}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Estimate Effort</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.estEffort}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Templates</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.template}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Keywords</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.keyword}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Remarks</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.remark}}</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-2"><strong>Status</strong></div>
+	  		<div class="col-sm-10">{{selectedTask.status}}</div>
+	  	</div>
+	  	
+	</div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Resoruce <a class="btn btn-success btn-sm" role="button" ng-click="addResoruceRow()">Add</a></div>
+  <div class="panel-body">
+  	<form class="form-horizontal" ng-submit="saveAssignment()">
+  		<!-- <div class="row">
+	  		<input type="date" id="f_testing" ng-model="test_date">
+	  		<br>Input field: {{test_date}}
+	  		<br>
+	  		<input type="date" id="f_testing2" ng-model="test_date_utc">
+	  		<br>Ctrl: {{test_date_utc}}
+	  		
+	  	</div> -->
+		<table class="table" ng-show="inputData.length>0">
+  		<thead>
+	      <tr>
+	        <th></th>
+	        <th>Resoruce</th>
+	        <th>Date</th>
+	        <th>Hours</th>
+	        
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="item in inputData">
+				<td>
+					<a class="btn btn-danger btn-sm" role="button" ng-click="removeResoruceRow($index)">X</a>
+				</td>
+				<td>
+					<select class="form-control" id="f_users" ng-model="item.user" ng-options="rscitem.name for rscitem in users">
+					    <option value="">Select Resoruce</option>
+					</select>
+				</td>
+				<td>
+					<input type="date" id="f_assignDate" ng-model="item.date">
+				</td>
+				<td>
+					<input type="number" id="f_effort" class="form-control" placeholder="Effort" ng-model="item.effort">
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<div class="form-group" ng-show="inputData.length>0">
+			<div class="col-sm-offset-5 col-sm-10">
+	      		<button type="submit" class="btn btn-primary">Submit</button>
+	      		<button type="reset" class="btn btn-default">Reset</button>
+	      	</div>
+		</div>
+	</form>
+  </div>
+</div>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">Resoruce Status:</div>
+  <div class="panel-body">
+  	<table class="table table-bordered">
+  		<thead>
+	      <tr>
+	        <th>Resource</th>
+	        <th>{{today | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 1) | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 2) | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 3) | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 4) | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 5) | date:"dd/MM"}}</th>
+	        <th>{{addDay(today, 6) | date:"dd/MM"}}</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+			<tr ng-repeat="user in users">
+				<td>{{user.name}}</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+	</div>
+</div>
+
